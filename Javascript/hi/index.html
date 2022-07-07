@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HVAC</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    
+    <h1 >Controls, Equipment, Marrage Metting</h1>
+    <div class="row">
+      <div class="column" id="checkList">
+        <p>Job Name / Project Number</p>
+        <input type="text" name="jobsiteID" id="jobsiteID">
+        <p>Attendence</p>
+        <textarea name="attendenceID" id="attendenceID"></textarea><br>
+        <input type="checkbox" id="chiller" onclick="questions(this.id, chillerTypes.id)">
+        <label for="chiller">CHILLER</label><br>
+        <div name="chillerTypes" id="chillerTypes">
+          <input type="checkbox" id="chillerAir" onclick="questions(this.id, chillerAirDiv.id)">
+          <label for="chillerAir">CHILLER AIR COOLED</label><br>
+          <input type="checkbox" id="chillerWater" onclick="questions(this.id, chillerWaterDiv.id)">
+          <label for="chillerWater">CHILLER WATER COOLED</label><br>
+        </div>
+<input type="checkbox" id="boiler" onclick="questions(this.id, BoilerTypes.id)">
+        <label for="boiler">BOILER</label><br>
+        <div name="boilerTypes" id="BoilerTypes">
+          <input type="checkbox" id="boilercon" onclick="questions(this.id, boilerconDiv.id)">
+          <label for="boilercon">CONDENSING BOILER</label><br>
+          <input type="checkbox" id="boilernon" onclick="questions(this.id, boilernonDiv.id)">
+          <label for="boilernon">NON CONDENSING BOILER</label><br>
+        </div>
+<input type="checkbox" id="AHU/RTU/MAU/HUMIDIFIER" onclick="questions(this.id, ahuDiv.id)">
+        <label for="AHU/RTU/MAU/HUMIDIFIER">AHU/RTU/MAU/HUMIDIFIER</label><br>
+        <div name="ahuTypes" id="ahuTypes">
+          <input type="checkbox" id="AHU" onclick="questions(this.id, ahuDiv.id)">
+          <label for="AHU">AHU</label><br>
+          <input type="checkbox" id="RTU" onclick="questions(this.id, ahuDiv.id)">
+          <label for="RTU">RTU</label><br>
+          <input type="checkbox" id="MAU" onclick="questions(this.id, ahuDiv.id)">
+          <label for="RTU">MAU</label><br>
+          <input type="checkbox" id="HUMIDIFIER" onclick="questions(this.id, ahuDiv.id)">
+          <label for="HUMIDIFIER">HUMIDIFIER</label><br>
+        </div>
+
+
+        <input type="checkbox" id="DXSVrf" onclick="questions(this.id, DXSVrfDiv.id)">
+        <label for="DXSVrf">DXS VRF</label><br>
+        <input type="checkbox" id="Heat Pumps" onclick="questions(this.id, heatPumpsDiv.id)">
+        <label for="Heat Pumps"> HEAT PUMP</label><br><br>
+      </div>
+
+    <div class="row">
+      <div class="column" name="questionsDiv" id="questionsDiv">
+        <div name="chillerAirDiv" id="chillerAirDiv" style="display:none">
+          <h2 id="header">Air Cooled Chillers</h2>
+          <h2><b> CHILLERS Low Water Flow. </b></h2>
+          <p>If the sequence of operations calls for a modulating flow rate on the primary water loop:</p>
+          <p>What are the Chillers minimum flow required to maintain operating pressure across the evaporators bundle? (.......L/m)</p>
+          <textarea id="chillerAirQuestion1"></textarea>
+          <p>What is the Chillers minimum flow required to maintain the flow switch?(.......L/m)</p>
+          <textarea id="chillerAirQuestion2"></textarea>
+          <p>Is a modulating bypass valve reqiored fpr minimum flow requirements</p>
+          <textarea id="chillerAirQuestion3"></textarea>
+          <p>If we are using a flow sensing device to contorl minimum flow is it seensitive enougth to provide proper control?</p>
+          <textarea id="chillerAirQuestion4"></textarea>
+          <p> <b>Control Sequences With Staged Cooling and Heating: </b></p>
+          <p>Do the conrol sequences line up with a staged compressor chiller</p>
+          <textarea id="chillerAirQuestion5"></textarea>
+          <p>Are we controlling to a return water tempurature (A delayed feedback loop temp).</p>
+          <textarea id="chillerAirQuestion6"></textarea>
+        </div>
+
+        <div name="chillerWaterDiv" id="chillerWaterDiv" style="display:none">
+          <h2 id="header">Water Cooled Chillers</h2>
+          <h2>CHILLERS Low Water Flow.</h2>
+          <p>If the sequence of operations calls for a modulating flow rate on the primary water loop:</p>
+          <p>What are the Chillers minimum flow required to maintain operating pressure across the evaporators bundle? (.......L/m)</p>
+          <textarea id="chillerWaterQuestion1"></textarea>
+          <p>What is the Chillers minimum flow required to maintain the flow switch?(.......L/m)</p>
+          <textarea id="chillerWaterQuestion2"></textarea>
+          <p>Is a modulating bypass valve reqiored fpr minimum flow requirements</p>
+          <textarea id="chillerWaterQuestion3"></textarea>
+          <p>If we are using a flow sensing device to contorl minimum flow is it seensitive enougth to provide proper control?</p>
+          <textarea id="chillerWaterQuestion4"></textarea>
+          <p> <b>Control Sequences With Staged Cooling and Heating: </b></p>
+          <p>Do the conrol sequences line up with a staged compressor chiller</p>
+          <textarea id="chillerWaterQuestion5"></textarea>
+          <p>Are we controlling to a return water tempurature (A delayed feedback loop temp).</p>
+          <textarea id="chillerWaterQuestion6"></textarea>
+        </div>
+
+        <div name="boilerDiv" id="boilerDiv" style="display:none">
+          <h2 id="header">Boiler</h2>
+          <p> <b>BOILERS Low Water Flow. </b>If the sequence of operations calls for a modulating flow rate on the primary water loop:</p>
+          <p> What are the boilers minimum flow requirements to reduce the risk of tripping the high limit switch? (.......L/m)</p>
+          <textarea id="boilerQuestion1"></textarea>
+          <p> Noncondensing boilers must maintain a return water temperature above the flue gas condensation temperature. Do the minimum flow requirements meet this condition?</p>
+          <textarea id="boilerQuestion2"></textarea>
+          <p> <b>Control Sequences With Staged Cooling and Heating: </b></p>
+          <p> Do the contorl sequences line up with a staged boiler control?</p>
+          <textarea id="boilerQuestion3"></textarea>
+          <p>Are we controlling a return water temperature? (A delayed feedback loop temp) </p>
+          <textarea id="boilerQuestion4"></textarea>
+        </div>
+
+        <div name="ahuDiv" id="ahuDiv" style="display:none">
+          <h2 id="header"> AHU/RTU/MAU </h2>
+          <p><b>AHU/RTU/MAU Low Water Flow.</b></p>
+          <p>If the sequence of operations calls for a modulationg flow rate on the secondary water loop(This is more of a water balancing issue) </p>
+          <textarea id="AHUQuestion1"></textarea>
+          <p><b>AHU/RTU/MAU Air Flow Minimums.</b></p>
+          <p>Gas fired burner minimum flow requirements</p>
+          <p> What are the minimum flow requirements for the Gas fired burner (..............L/m)?</p>
+          <textarea id="AHUQuestion2"></textarea>
+          <p> Are the systems (VAC) minimums design flows large enough to accommodate the minimum gas burner requirements?</p>
+          <textarea id="AHUQuestion3"></textarea>
+          <p><b>DX cooling minimum flow requirement</b></p>
+          <p> What are the minimum flow requirements for the DX cooling (..............L/m)?</p>
+          <textarea id="AHUQuestion4"></textarea>
+          <p>Are the system (VAC) minimum design flows large enough to accomodate the minimum DX requirements</p>
+          <textarea id="AHUQuestion5"></textarea>
+          <p>What is the Electric Duct Heater air flow requirements(.......L/m) Safety switch?</p>
+          <textarea id="AHUQuestion6"></textarea>
+          <p>Is there a concern with Minimum air flow and CO2 control sequence.</p>
+          <textarea id="AHUQuestion7"></textarea>
+          <p><b>Humidifier minimum flow requirements</b></p>
+          <p> What are the minimum flow requirements for the Humidifier (..............L/m)?</p>
+          <textarea id="AHUQuestion8"></textarea>
+          <p>What are the minimum flow requirements for the Humidifier air flow proving switch (..............L/m)?(not sure if this is relevant switch is usually adjustable)</p>
+          <textarea id="AHUQuestion9"></textarea>
+          <p><b>Contorl Sequences with Staged Cooling and Heating</b></p>
+          <p>Staged gas burner. SAT vs Zone vs RAT.</p>
+          <textarea id="AHUQuestion10"></textarea>
+          <p>Do the control sequences line up with the delta of the stages of the equipment?</p>
+          <textarea id="AHUQuestion11"></textarea>
+          <p>What is the temperature rise per stage. XXXXXXXX°C</p>
+          <textarea id="AHUQuestion12"></textarea>
+          <p>Staged DX cooling control. SAT vs Zone vs RAT.</p>
+          <textarea id="AHUQuestion13"></textarea>
+          <p>Rated Evaporator Air Flow Rate</p>
+          <textarea id="AHUQuestion14"></textarea>
+          <p>Minimum Outdoor Dry-Bulb Temperature for Compressor Operation</p>
+          <textarea id="AHUQuestion15"></textarea>
+          <p>DX curve fit</p>
+          <textarea id="AHUQuestion16"></textarea>
+          <p>Maximum Cycling Rate</p>
+          <textarea id="AHUQuestion17"></textarea>
+        </div>
+
+        <div name="DXSVrfDiv" id="DXSVrfDiv" style="display:none">
+          <h2 id="header">DXSVrf</h2>
+          <p> What are the min flow requirements for Heating/Cooling. (.....L/min)</p>
+          <textarea id="DXSVrfQuestion1"></textarea>
+          <p>0-10v Step control or 0-10v modulating? (Step control does not give very good SAT control)</p>
+          <textarea id="DXSVrfQuestion2"></textarea>
+          <p>(Defrost cycle?) in heating. How does this affect SAT control.</p>
+          <textarea id="DXSVrfQuestion3"></textarea>
+        </div>
+
+        <div name="heatPumpsDiv" id="heatPumpsDiv" style="display:none">
+          <h2 id="header">Heat Pumps</h2>
+          <p>If the sequence of operations calls for a modulating flow rate on the primary water loop</p>
+          <p>Heat pump minimum flow requirement to avoid high pressure condenser lockout(.......L/m)</p>
+          <textarea id="heatPumpsQuestion1"></textarea>
+          <p>Heat pump minimum flow requirement to avoid low pressure condenser lockout(.......L/m)</p>
+          <textarea id="heatPumpsQuestion2"></textarea>
+          <p>Temp limits</p>
+          <p>Heat pump minimum flow requirement to avoid high pressure condenser lockout(.......L/m)</p>
+          <textarea id="heatPumpsQuestion1"></textarea>
+          <p>Heat pump minimum flow requirement to avoid low pressure condenser lockout(.......L/m)</p>
+          <textarea id="heatPumpsQuestion2"></textarea>
+        </div>
+        <div name="buttonDiv" id="buttonDiv">
+          <button type="button" id="generateForm" onclick="printForm(questionsDiv.id)">generate form</button>
+          <a download="info.txt" id="downloadFile" style="display: none">Download</a>
+        </div>
+        <div id="hiddenText" style="display:none">
+          <p id="hiddenP"></p>
+        </div>
+        </div>
+    </div>
+  </div>
+      <script src="script.js"></script>
+  </body>
+</html>

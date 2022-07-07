@@ -1,0 +1,63 @@
+
+html {
+
+  font-size: larger;
+  line-height: 150%;
+
+  background-image: url("HTSLogoEnlarged.png"), radial-gradient(#d3d3d3, #bdbdbd); /* W3C */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  
+}
+
+h1{
+  font-size : 36px;
+  text-align: center;
+}
+
+h2{
+  font-weight: bold;
+}
+
+/*when the screen is greater than 865px have the questions next to the check list
+when the screen is less than 865px have the questions below*/
+@media only screen and (min-width: 865px)
+{
+  .row {
+      display: flex;
+      flex: 50%
+    }
+    
+  .column
+  {
+      flex: 50%;
+    padding: 10px;
+  }
+}
+
+#buttonDiv
+{
+  text-align: left;
+}
+#chillerTypes
+{
+  display: none;
+  visibility: hidden;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+#BoilerTypes
+{
+  display: none;
+  visibility: hidden;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+textarea {
+    width: 500px;
+    height: 55px;
+  }
+
+
+
